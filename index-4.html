@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="NOVA_PASTA/images (4).png" alt="">
+    <title>GERAR LISTA KAMBAM DE PEÇAS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Gerenciador de Itens e Peças</h1>
+
+    <!-- Formulário para adicionar/editar item -->
+    <fieldset>
+        <legend>Adicionar Item</legend>
+        <label for="itemNome">Nome do item:</label>
+        <input type="text" id="itemNome" placeholder="Nome do item">
+        <button type="button" onclick="adicionarOuEditarItem()">Adicionar/Editar Item</button>
+    </fieldset>
+
+    <!-- Formulário para adicionar/editar peça -->
+    <fieldset>
+        <legend>Adicionar Peça</legend>
+        <label for="itemSelect">Selecione um item:</label>
+        <select id="itemSelect">
+            <option value="">Selecione um item</option>
+        </select>
+
+        <label for="pecaCodigo">Código da peça:</label>
+        <input type="text" id="pecaCodigo" placeholder="Código da peça">
+
+        <label for="pecaQuantidade">Quantidade:</label>
+        <input type="number" id="pecaQuantidade" placeholder="Quantidade">
+
+        <label for="pecaUnidade">Unidade:</label>
+        <input type="text" id="pecaUnidade" placeholder="Unidade">
+
+        <label for="pecaDescricao">Descrição:</label>
+        <input type="text" id="pecaDescricao" placeholder="Descrição">
+
+        <button type="button" onclick="adicionarOuEditarPeca()">Adicionar/Editar Peça</button>
+    </fieldset>
+
+    <!-- Lista de itens -->
+    <h2>Lista de Itens</h2>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Selecionar</th>
+                <th scope="col">Item</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody id="itensBody"></tbody>
+    </table>
+
+    <!-- Lista de peças -->
+    <h2>Lista de Peças</h2>
+    <ul id="pecasList"></ul>
+
+    <!-- Importar e exportar -->
+    <fieldset>
+        <legend>Importar e Exportar</legend>
+        <label for="importFile">Importar arquivo (.xlsx):</label>
+        <input type="file" id="importFile" accept=".xlsx">
+        <button type="button" onclick="importarExcel()">Importar</button>
+        <button type="button" onclick="gerarExcel()">Exportar Selecionados</button>
+    </fieldset>
+
+    <div id="importStatus"></div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* Variáveis CSS para cores e tamanhos */
+:root {
+    --color-primary: #e74c3c; /* Vermelho vibrante */
+    --color-secondary: #2c3e50; /* Fundo escuro */
+    --color-text: #ecf0f1; /* Texto claro */
+    --color-border: #7f8c8d; /* Cinza escuro para bordas */
+    --color-hover: #c0392b; /* Vermelho mais escuro ao passar o mouse */
+    --color-background: #34495e; /* Fundo escuro para inputs e listas */
+    --color-accent: #1abc9c; /* Verde suave para hover */
+    --font-size-large: 2.5em;
+    --font-size-medium: 1.8em;
+    --font-size-small: 1.1em;
+    --spacing: 15px;
+    --border-radius: 10px;
+    --transition-speed: 0.3s;
+}
+
+/* Reset e estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    padding: var(--spacing);
+    line-height: 1.6;
+}
+
+/* Estilo para os títulos */
+h1, h2 {
+    font-weight: 600;
+    margin-bottom: var(--spacing);
+    letter-spacing: 1px;
+    color: var(--color-primary);
+}
+
+h1 {
+    font-size: var(--font-size-large);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: var(--font-size-medium);
+}
+
+/* Inputs e Selects */
+input[type="text"],
+input[type="number"],
+select {
+    padding: 12px 18px;
+    margin: 12px 0;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    width: 100%;
+    box-sizing: border-box;
+    font-size: var(--font-size-small);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.6);
+}
+
+/* Botão */
+button {
+    padding: 12px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--color-hover);
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: var(--color-primary);
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: var(--font-size-small);
+    color: var(--color-text);
+}
+
+th, td {
+    padding: var(--spacing);
+    text-align: left;
+    border: 1px solid var(--color-border);
+    transition: background-color var(--transition-speed) ease;
+}
+
+th {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--color-background);
+}
+
+tbody tr:hover {
+    background-color: var(--color-accent);
+}
+
+/* Listas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: var(--color-background);
+    padding: var(--spacing);
+    margin: 10px 0;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+li:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Status de importação */
+#importStatus {
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: var(--font-size-small);
+    color: var(--color-primary);
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    button {
+        font-size: 1em;
+    }
+
+    table {
+        font-size: 1em;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
